@@ -19,15 +19,24 @@ public class ComputeAverage {
         
         try {
         
-            System.out.print("Enter three numbers: ");
-            double num1 = input.nextDouble();
-            double num2 = input.nextDouble();
-            double num3 = input.nextDouble();
+            System.out.print("How many numbers do you want to average?");
             
-            double average = ((num1 + num2 + num3) / 3);
+            int count = input.nextInt();
+            int sum = 0;
+            float average = 0;
+            int[] container = new int[count + 1];
             
-            System.out.println("The average of " + num1 + " " + num2 + " " + num3 + 
-            " is " + average);
+            System.out.print("Enter " + count + " numbers.");
+            
+            for(int i = 0; i < count; i++) {
+                System.out.print("Enter number " + (i + 1) + "/" + count);
+                container[i] = input.nextInt();
+                sum = sum + container[i];
+            }
+
+            average = (float)sum / count;
+            
+            System.out.print("Average: " + average);
             
         } finally {
             input.close();
